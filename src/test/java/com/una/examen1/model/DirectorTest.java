@@ -14,17 +14,17 @@ import javax.xml.bind.Marshaller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ActorTest {
+public class DirectorTest {
     private JAXBContext context;
 
     @BeforeEach
     public void init() throws JAXBException {
-        this.context = JAXBContext.newInstance(Actor.class);
+        this.context = JAXBContext.newInstance(Director.class);
     }
 
     @Test
     public void serializacion() throws JAXBException {
         Marshaller marshaller = this.context.createMarshaller();
-        marshaller.marshal(new Actor(1, "Najwa Nimri", 100), new File("actor-test.xml"));
+        marshaller.marshal(new Director(2, "Carlos Vermut", 1), new File("director-test.xml"));
     }
 }
