@@ -26,7 +26,7 @@ public class ControladorCinema {
     }
 
     public boolean agregarActor(Actor actor) {
-        if (recuperarDirector(actor.getID()) != null) {
+        if (recuperarActor(actor.getID()) != null) {
             return false;
         }
         actores.add(actor);
