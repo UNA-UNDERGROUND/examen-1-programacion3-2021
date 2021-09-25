@@ -25,6 +25,7 @@ public class PersonaTest {
     @Test
     public void serializacion() throws JAXBException{
         Marshaller marshaller = this.context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(new Persona(0, "Carlos Loría Saenz", 0), new File("persona-test.xml"));
     }
 }

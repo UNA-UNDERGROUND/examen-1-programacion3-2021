@@ -25,6 +25,7 @@ public class PeliculaTest {
     @Test
     public void serializacion() throws JAXBException {
         Marshaller marshaller = this.context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         Actor actor = new Actor(1, "Najwa Nimri", 101);
         Director director = new Director(2, "Carlos Vermut", 1);
         marshaller.marshal(new Pelicula(3, "Quien te cantará", (float) 2.0, actor, director),

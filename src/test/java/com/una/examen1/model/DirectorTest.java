@@ -25,6 +25,7 @@ public class DirectorTest {
     @Test
     public void serializacion() throws JAXBException {
         Marshaller marshaller = this.context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(new Director(2, "Carlos Vermut", 1), new File("director-test.xml"));
     }
 }
