@@ -1,5 +1,11 @@
 package com.una.examen1.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Persona {
 
     public Persona(Integer id, String nombre, Integer cantidad) {
@@ -37,7 +43,6 @@ public class Persona {
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
-
 
     private Integer id;
     private String nombre;
