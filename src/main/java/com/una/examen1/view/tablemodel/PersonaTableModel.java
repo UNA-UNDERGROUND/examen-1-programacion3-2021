@@ -15,7 +15,7 @@ public class PersonaTableModel extends AbstractTableModel {
         this(new ArrayList<Persona>());
     }
 
-    public PersonaTableModel(List<Persona> personas) {
+    public PersonaTableModel(List<? extends Persona> personas) {
         this.personas = personas;
     }
 
@@ -74,7 +74,7 @@ public class PersonaTableModel extends AbstractTableModel {
         // ningun campo se puede editar
     }
 
-    private List<Persona> personas;
+    private List<? extends Persona> personas;
     private LinkedList<TableModelListener> suscriptores = new LinkedList<>();
     private final static String[] COLUMNAS = { "Id", "Nombre", "Premios" };
 }
