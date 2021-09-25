@@ -53,6 +53,10 @@ public class ControladorCinema {
         return resultado;
     }
 
+    public ArrayList<Actor> recuperarActores() {
+        return actores;
+    }
+
     // Director
 
     public Director recuperarDirector(int id) {
@@ -90,6 +94,10 @@ public class ControladorCinema {
             }
         }
         return resultado;
+    }
+
+    public ArrayList<Director> recuperarDirectores() {
+        return directores;
     }
 
     // Pelicula
@@ -131,6 +139,10 @@ public class ControladorCinema {
             }
         }
         return resultado;
+    }
+
+    public ArrayList<Pelicula> recuperarPeliculas() {
+        return peliculas;
     }
 
     private ArrayList<Director> directores;
