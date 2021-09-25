@@ -5,6 +5,14 @@
  */
 package com.una.examen1.view;
 
+import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import com.una.examen1.controller.ControladorCinema;
+import com.una.examen1.model.Actor;
+import com.una.examen1.model.Director;
+import com.una.examen1.model.Persona;
 import com.una.examen1.view.tablemodel.PersonaTableModel;
 
 public class AdministradorPersona extends javax.swing.JFrame {
@@ -25,6 +33,49 @@ public class AdministradorPersona extends javax.swing.JFrame {
         } else {
             setTitle("Administrador Directores");
         }
+
+        tablePersonas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent evt) {
+                // do some actions here, for example
+                // print first column value from selected row
+                txtID.setText(tablePersonas.getValueAt(tablePersonas.getSelectedRow(), 0).toString());
+                buscarPersona();
+            }
+        });
+        actualizarLista();
+    }
+
+    private void buscarPersona() {
+        try {
+            Integer id = Integer.parseInt(txtID.getText());
+            Persona p;
+            if (esActor) {
+                p = ControladorCinema.getInstancia().recuperarActor(id);
+            } else {
+                p = ControladorCinema.getInstancia().recuperarDirector(id);
+            }
+            if (p != null) {
+                txtID.setText(Integer.valueOf(p.getID()).toString());
+                txtNombre.setText(p.getNombre());
+                txtPremios.setText(Integer.valueOf(p.getCantidad()).toString());
+            } else {
+                JOptionPane.showMessageDialog(this, "Persona no encontrada", "no se encontro la persona",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error de formato", "el ID debe ser un numero entero",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void actualizarLista() {
+        PersonaTableModel modelo;
+        if (esActor) {
+            modelo = new PersonaTableModel(ControladorCinema.getInstancia().recuperarActores());
+        } else {
+            modelo = new PersonaTableModel(ControladorCinema.getInstancia().recuperarDirectores());
+        }
+        tablePersonas.setModel(modelo);
     }
 
     /**
@@ -34,7 +85,8 @@ public class AdministradorPersona extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -110,90 +162,140 @@ public class AdministradorPersona extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNombre)
-                    .addComponent(txtPremios, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnAgregar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnListar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRegresar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPremios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAgregar)
-                        .addComponent(btnBuscar)
-                        .addComponent(btnListar)
-                        .addComponent(btnActualizar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup().addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel1).addComponent(jLabel2).addComponent(jLabel3))
+                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtNombre)
+                                        .addComponent(txtPremios, javax.swing.GroupLayout.DEFAULT_SIZE, 208,
+                                                Short.MAX_VALUE)
+                                        .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout
+                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup().addGap(6, 6, 6).addComponent(btnAgregar)
+                                        .addGap(18, 18, 18).addComponent(btnBuscar).addGap(18, 18, 18)
+                                        .addComponent(btnListar).addGap(18, 18, 18).addComponent(btnActualizar)
+                                        .addGap(18, 18, 18).addComponent(btnRegresar)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout
+                                        .createSequentialGroup().addComponent(jScrollPane2,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                                        .addContainerGap()))));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtPremios, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 214,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE, 23,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnAgregar).addComponent(btnBuscar).addComponent(btnListar)
+                                        .addComponent(btnActualizar)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarActionPerformed
+        try {
+            Integer id = Integer.parseInt(txtID.getText());
+            String nombre = txtNombre.getText();
+            Integer cantidad = Integer.parseInt(txtPremios.getText());
+            boolean exitoso;
+            if (esActor) {
+                Actor nuevo = new Actor(id, nombre, cantidad);
+                exitoso = ControladorCinema.getInstancia().agregarActor(nuevo);
+            } else {
+                Director nuevo = new Director(id, nombre, cantidad);
+                exitoso = ControladorCinema.getInstancia().agregarDirector(nuevo);
+            }
+            if (exitoso) {
+                actualizarLista();
+            } else {
+                JOptionPane.showMessageDialog(this, "Campo existente", "La persona ya esta registrada",
+                        JOptionPane.WARNING_MESSAGE);
+            }
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error de formato", "El id y los premios deben de ser numeros enteros",
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnListarActionPerformed
+    }// GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnBuscarActionPerformed
+        buscarPersona();
+    }// GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnListarActionPerformed
+        try {
+            PersonaTableModel modelo;
+            Integer id = Integer.parseInt(txtID.getText());
+            if (esActor) {
+                modelo = new PersonaTableModel(ControladorCinema.getInstancia().buscarActores(id));
+            } else {
+                modelo = new PersonaTableModel(ControladorCinema.getInstancia().buscarDirectores(id));
+            }
+            tablePersonas.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error de formato", "el ID debe ser un numero entero",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+    }// GEN-LAST:event_btnListarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnActualizarActionPerformed
+        try {
+            Integer id = Integer.parseInt(txtID.getText());
+            String nombre = txtNombre.getText();
+            Integer cantidad = Integer.parseInt(txtPremios.getText());
+            boolean exitoso;
+            if (esActor) {
+                Actor nuevo = new Actor(id, nombre, cantidad);
+                exitoso = ControladorCinema.getInstancia().actualizarActor(nuevo);
+            } else {
+                Director nuevo = new Director(id, nombre, cantidad);
+                exitoso = ControladorCinema.getInstancia().actualizarDirector(nuevo);
+            }
+            if (exitoso) {
+                actualizarLista();
+            } else {
+                JOptionPane.showMessageDialog(this, "Campo no existente", "La persona no esta registrada",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error de formato", "El id y los premios deben de ser numeros enteros",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }// GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegresarActionPerformed
         padre.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    }// GEN-LAST:event_btnRegresarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
