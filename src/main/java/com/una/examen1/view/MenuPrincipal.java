@@ -41,6 +41,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        directores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/una/examen1/view/imagenes/imagen3.png"))); // NOI18N
         directores.setText("Directores");
         directores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        peliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/una/examen1/view/imagenes/imagen1.png"))); // NOI18N
         peliculas.setText("Peliculas ");
         peliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +57,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        actores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/una/examen1/view/imagenes/imagen2.png"))); // NOI18N
         actores.setText("Actores");
         actores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,23 +70,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
+                .addContainerGap(124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(actores, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(peliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(directores, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(116, 116, 116))
+                    .addComponent(directores, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(peliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(actores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(directores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(peliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(actores)
+                .addGap(18, 18, 18)
+                .addComponent(directores)
+                .addGap(18, 18, 18)
+                .addComponent(peliculas)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
