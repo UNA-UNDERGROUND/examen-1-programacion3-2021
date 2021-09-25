@@ -55,9 +55,9 @@ public class PeliculaTableModel extends AbstractTableModel {
             case 2:
                 return String.format("%.1f", p.getDuracion());
             case 3:
-                return String.format("%s", p.getDirector());
+                return String.format("%s", p.getDirector().getNombre());
             case 4:
-                return String.format("%s", p.getActor());
+                return String.format("%s", p.getActor().getNombre());
             default:
                 return null;
         }
