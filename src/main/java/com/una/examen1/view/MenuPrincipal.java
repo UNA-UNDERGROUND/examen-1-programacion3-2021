@@ -31,6 +31,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal ");
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         directores.setText("Directores");
         directores.addActionListener(new java.awt.event.ActionListener() {
@@ -58,38 +60,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(119, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(actores, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(peliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(directores, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                .addGap(116, 116, 116))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(40, 40, 40)
                 .addComponent(actores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(directores, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(peliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void actoresActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_actoresActionPerformed
-        new AdministradorPersona(true).setVisible(true);
+        new AdministradorPersona(this, true).setVisible(true);
+        setVisible(false);
     }// GEN-LAST:event_actoresActionPerformed
 
     private void directoresActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_directoresActionPerformed
-        new AdministradorPersona(false).setVisible(true);
+        new AdministradorPersona(this, false).setVisible(true);
+        setVisible(false);
     }// GEN-LAST:event_directoresActionPerformed
 
     private void peliculasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_peliculasActionPerformed
-        new AdministradorPeliculas().setVisible(true);
+        new AdministradorPeliculas(this).setVisible(true);
+        setVisible(false);
     }// GEN-LAST:event_peliculasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
