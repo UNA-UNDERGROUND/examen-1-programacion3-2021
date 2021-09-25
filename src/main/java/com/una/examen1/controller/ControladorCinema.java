@@ -12,6 +12,7 @@ public class ControladorCinema {
         directores = new ArrayList<>();
         actores = new ArrayList<>();
         peliculas = new ArrayList<>();
+        cargar();
     }
 
     // Actor
@@ -143,6 +144,14 @@ public class ControladorCinema {
 
     public ArrayList<Pelicula> recuperarPeliculas() {
         return peliculas;
+    }
+
+    public void guardar() {
+
+    }
+
+    public void cargar() {
+
     }
 
     private ArrayList<Director> directores;

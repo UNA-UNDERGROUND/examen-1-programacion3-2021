@@ -5,6 +5,8 @@
  */
 package com.una.examen1.view;
 
+import com.una.examen1.controller.ControladorCinema;
+
 public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
@@ -33,6 +35,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setTitle("Menu Principal ");
         setLocation(new java.awt.Point(0, 0));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         directores.setText("Directores");
         directores.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +89,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        ControladorCinema.getInstancia().guardar();
+    }//GEN-LAST:event_formWindowClosing
 
     private void actoresActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_actoresActionPerformed
         new AdministradorPersona(this, true).setVisible(true);
