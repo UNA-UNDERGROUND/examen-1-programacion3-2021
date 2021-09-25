@@ -1,28 +1,28 @@
 package com.una.examen1.model;
 
 public class Persona {
-    private String id;
-    private String name;
+    private int id;
+    private String nombre;
     private int cantidad;
 
-    public Persona(String id, String name, int cantidad) {
+    public Persona(int id, String nombre, int cantidad) {
         this.id = id;
-        this.name = name;
+        this.nombre = nombre;
         this.cantidad = cantidad;
     }
 
     /**
      * @return the ID
      */
-    public String getID() {
+    public int getID() {
         return id;
     }
 
     /**
-     * @return the Name
+     * @return the Nombre
      */
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
     /**
@@ -32,12 +32,12 @@ public class Persona {
         return cantidad;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String name) {
+        this.nombre = name;
     }
 
     public void setCantidad(int cantidad) {
