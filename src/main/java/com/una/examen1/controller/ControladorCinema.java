@@ -152,7 +152,7 @@ public class ControladorCinema {
     }
 
     public void cargar() {
-        JAXBParser.unmarshall(cinema, "cinema.xml");
+        cinema = (Cinema)JAXBParser.unmarshall(cinema, "cinema.xml");
     }
 
     private Cinema cinema;
