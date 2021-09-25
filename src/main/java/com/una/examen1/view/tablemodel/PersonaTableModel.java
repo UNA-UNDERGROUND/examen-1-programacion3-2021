@@ -9,7 +9,7 @@ import javax.swing.table.AbstractTableModel;
 
 import com.una.examen1.model.Persona;
 
-class PersonaTableModel extends AbstractTableModel {
+public class PersonaTableModel extends AbstractTableModel {
 
     public PersonaTableModel() {
         this(new ArrayList<Persona>());
