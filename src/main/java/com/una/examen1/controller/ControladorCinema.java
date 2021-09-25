@@ -12,7 +12,6 @@ import com.una.examen1.model.Pelicula;
 public class ControladorCinema {
 
     private ControladorCinema() {
-        cinema = new Cinema();
         cargar();
     }
 
@@ -152,7 +151,7 @@ public class ControladorCinema {
     }
 
     public void cargar() {
-        cinema = (Cinema)JAXBParser.unmarshall(cinema, "cinema.xml");
+        cinema = (Cinema) JAXBParser.unmarshall(new Cinema(), "cinema.xml");
     }
 
     private Cinema cinema;

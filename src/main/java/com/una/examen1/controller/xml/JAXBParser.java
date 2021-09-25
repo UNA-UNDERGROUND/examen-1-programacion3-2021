@@ -28,10 +28,10 @@ public class JAXBParser {
             Unmarshaller unmarshallerObj = context.createUnmarshaller();
             return unmarshallerObj.unmarshal(new BufferedInputStream(new FileInputStream(rutaArchivo)));
         } catch (FileNotFoundException ex) {
-            System.err.println("[WARN] Archivo del cinema no encontrado, omitiendo.");
+            System.err.println("[WARN] Archivo no encontrado, omitiendo.");
         } catch (Exception ex) {
-            System.err.println("[WARN] Archivo del cinema incorrecto, omitiendo.");
+            System.err.println("[WARN] Archivo incorrecto, omitiendo.");
         }
-        return null;
+        return ref;
     }
 }
