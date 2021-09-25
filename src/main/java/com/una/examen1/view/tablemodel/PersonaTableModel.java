@@ -49,11 +49,11 @@ public class PersonaTableModel extends AbstractTableModel {
         Persona p = personas.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return String.format("%-2d", p.getID());
+                return p.getID();
             case 1:
-                return String.format("%s", p.getNombre());
+                return p.getNombre();
             case 2:
-                return String.format("%-2d", p.getCantidad());
+                return p.getCantidad();
             default:
                 return null;
         }

@@ -49,15 +49,15 @@ public class PeliculaTableModel extends AbstractTableModel {
         Pelicula p = peliculas.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return String.format("%-2d", p.getID());
+                return  p.getID();
             case 1:
-                return String.format("%s", p.getNombre());
+                return p.getNombre();
             case 2:
-                return String.format("%.1f", p.getDuracion());
+                return p.getDuracion();
             case 3:
-                return String.format("%s", p.getDirector().getNombre());
+                return p.getDirector().getNombre();
             case 4:
-                return String.format("%s", p.getActor().getNombre());
+                return p.getActor().getNombre();
             default:
                 return null;
         }
