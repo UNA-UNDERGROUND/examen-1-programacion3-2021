@@ -13,3 +13,5 @@ buildNumber.properties
 .project
 .vscode
 cinema.xml
+/nbproject/
+test.xml
