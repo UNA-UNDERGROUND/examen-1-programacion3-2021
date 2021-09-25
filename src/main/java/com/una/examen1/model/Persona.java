@@ -36,8 +36,8 @@ public class Persona {
         this.id = id;
     }
 
-    public void setNombre(String name) {
-        this.nombre = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setCantidad(int cantidad) {
