@@ -36,8 +36,6 @@ public class AdministradorPersona extends javax.swing.JFrame {
 
         tablePersonas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent evt) {
-                // do some actions here, for example
-                // print first column value from selected row
                 txtID.setText(tablePersonas.getValueAt(tablePersonas.getSelectedRow(), 0).toString());
                 buscarPersona();
             }
