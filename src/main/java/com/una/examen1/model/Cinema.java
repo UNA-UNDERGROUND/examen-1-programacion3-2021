@@ -1,7 +1,16 @@
 package com.una.examen1.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cinema {
 
     public Cinema() {
@@ -10,31 +19,37 @@ public class Cinema {
         peliculas = new ArrayList<>();
     }
 
-    public ArrayList<Director> getDirectores() {
+    public List<Director> getDirectores() {
         return directores;
     }
 
-    public void setDirectores(ArrayList<Director> directores) {
+    public void setDirectores(List<Director> directores) {
         this.directores = directores;
     }
 
-    public ArrayList<Actor> getActores() {
+    public List<Actor> getActores() {
         return actores;
     }
 
-    public void setActores(ArrayList<Actor> actores) {
+    public void setActores(List<Actor> actores) {
         this.actores = actores;
     }
 
-    public ArrayList<Pelicula> getPeliculas() {
+    public List<Pelicula> getPeliculas() {
         return peliculas;
     }
 
-    public void setPeliculas(ArrayList<Pelicula> peliculas) {
+    public void setPeliculas(List<Pelicula> peliculas) {
         this.peliculas = peliculas;
     }
 
-    private ArrayList<Director> directores;
-    private ArrayList<Actor> actores;
-    private ArrayList<Pelicula> peliculas;
+    @XmlElementWrapper
+    @XmlElement
+    private List<Director> directores;
+    @XmlElementWrapper
+    @XmlElement
+    private List<Actor> actores;
+    @XmlElementWrapper
+    @XmlElement
+    private List<Pelicula> peliculas;
 }
