@@ -2,18 +2,22 @@ package com.una.examen1.model;
 
 public class Pelicula {
 
-    public Pelicula(int id, String nombre, float duracion, Actor actor, Director director) {
+    public Pelicula(Integer id, String nombre, Float duracion, Actor actor, Director director) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.actor = actor;
         this.director = director;
     }
 
-    public int getID() {
+    public Pelicula() {
+
+    }
+
+    public Integer getID() {
         return id;
     }
 
-    public void setID(int id) {
+    public void setID(Integer id) {
         this.id = id;
     }
 
@@ -25,7 +29,7 @@ public class Pelicula {
         this.nombre = nombre;
     }
 
-    public float getDuracion() {
+    public Float getDuracion() {
         return duracion;
     }
 
@@ -49,9 +53,9 @@ public class Pelicula {
         this.director = director;
     }
 
-    private int id;
+    private Integer id;
     private String nombre;
-    private float duracion;
+    private Float duracion;
     private Actor actor;
     private Director director;
 

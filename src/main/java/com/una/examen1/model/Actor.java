@@ -1,9 +1,11 @@
 package com.una.examen1.model;
 
 public class Actor extends Persona {
-
-    public Actor(int id, String nombre, int cantidad) {
+    public Actor(Integer id, String nombre, Integer cantidad) {
         super(id, nombre, cantidad);
     }
 
+    public Actor() {
+
+    }
 }

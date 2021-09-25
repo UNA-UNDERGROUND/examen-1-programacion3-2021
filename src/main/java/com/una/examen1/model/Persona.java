@@ -1,38 +1,32 @@
 package com.una.examen1.model;
 
 public class Persona {
-    private int id;
-    private String nombre;
-    private int cantidad;
 
-    public Persona(int id, String nombre, int cantidad) {
+    public Persona(Integer id, String nombre, Integer cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
     }
 
-    /**
-     * @return the ID
-     */
-    public int getID() {
+    public Persona() {
+        id = -1;
+        nombre = "";
+        cantidad = 0;
+    }
+
+    public Integer getID() {
         return id;
     }
 
-    /**
-     * @return the Nombre
-     */
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * @return the cantidad de premios
-     */
-    public int getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,8 +34,12 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
+
+    private Integer id;
+    private String nombre;
+    private Integer cantidad;
 }
