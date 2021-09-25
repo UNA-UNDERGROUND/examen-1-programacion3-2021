@@ -3,6 +3,7 @@ package com.una.examen1.model;
 public class Pelicula {
 
     public Pelicula(Integer id, String nombre, Float duracion, Actor actor, Director director) {
+        this.id = id;
         this.nombre = nombre;
         this.duracion = duracion;
         this.actor = actor;
