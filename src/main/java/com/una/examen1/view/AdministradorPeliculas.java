@@ -61,21 +61,9 @@ public class AdministradorPeliculas extends javax.swing.JFrame {
 
         jLabel4.setText("Duracion :");
 
-        cmbDirector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbDirectorActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("Actor:");
 
         jLabel6.setText("Director: ");
-
-        cmbActor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbActorActionPerformed(evt);
-            }
-        });
 
         tablePeliculas.setModel(new PeliculaTableModel());
         jScrollPane1.setViewportView(tablePeliculas);
@@ -196,14 +184,6 @@ public class AdministradorPeliculas extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmbDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDirectorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbDirectorActionPerformed
-
-    private void cmbActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbActorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbActorActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
