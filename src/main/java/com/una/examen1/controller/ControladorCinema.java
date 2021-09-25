@@ -3,6 +3,7 @@ package com.una.examen1.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.una.examen1.controller.xml.JAXBParser;
 import com.una.examen1.model.Actor;
 import com.una.examen1.model.Cinema;
 import com.una.examen1.model.Director;
@@ -147,10 +148,11 @@ public class ControladorCinema {
     }
 
     public void guardar() {
+        JAXBParser.marshall(cinema, "cinema.xml");
     }
 
     public void cargar() {
-
+        JAXBParser.unmarshall(cinema, "cinema.xml");
     }
 
     private Cinema cinema;
