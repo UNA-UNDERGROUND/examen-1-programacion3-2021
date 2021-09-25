@@ -148,7 +148,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;ItemPersona&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -172,7 +172,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;ItemPersona&gt;"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -234,7 +234,15 @@
     <Component class="javax.swing.JComboBox" name="cmbDuracion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="7">
+            <StringItem index="0" value="1.0"/>
+            <StringItem index="1" value="1.5"/>
+            <StringItem index="2" value="2.0"/>
+            <StringItem index="3" value="2.5"/>
+            <StringItem index="4" value="3.0"/>
+            <StringItem index="5" value="3.5"/>
+            <StringItem index="6" value="4.0"/>
+          </StringArray>
         </Property>
       </Properties>
       <AuxValues>
