@@ -13,7 +13,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         getContentPane().setBackground(java.awt.Color.decode("#FFFFCC"));
-
     }
 
     /**

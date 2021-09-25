@@ -14,6 +14,7 @@ public class AdministradorPersona extends javax.swing.JFrame {
      */
     public AdministradorPersona(boolean esActor) {
         initComponents();
+        getContentPane().setBackground(java.awt.Color.decode("#FFFFCC"));
         this.esActor = esActor;
         if (esActor) {
             setTitle("Administrador Actores");
