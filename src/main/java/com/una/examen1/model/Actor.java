@@ -2,8 +2,8 @@ package com.una.examen1.model;
 
 public class Actor extends Persona {
 
-    public Actor(String id, String name, int cantidad) {
-        super(id, name, cantidad);
+    public Actor(int id, String nombre, int cantidad) {
+        super(id, nombre, cantidad);
     }
 
 }
