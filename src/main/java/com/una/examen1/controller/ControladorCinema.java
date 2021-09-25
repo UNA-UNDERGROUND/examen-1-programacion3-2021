@@ -1,24 +1,24 @@
 package com.una.examen1.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.una.examen1.model.Actor;
+import com.una.examen1.model.Cinema;
 import com.una.examen1.model.Director;
 import com.una.examen1.model.Pelicula;
 
 public class ControladorCinema {
 
     private ControladorCinema() {
-        directores = new ArrayList<>();
-        actores = new ArrayList<>();
-        peliculas = new ArrayList<>();
+        cinema = new Cinema();
         cargar();
     }
 
     // Actor
 
     public Actor recuperarActor(int id) {
-        for (Actor actor : actores) {
+        for (Actor actor : cinema.getActores()) {
             if (actor.getID() == id) {
                 return actor;
             }
@@ -30,7 +30,7 @@ public class ControladorCinema {
         if (recuperarActor(actor.getID()) != null) {
             return false;
         }
-        actores.add(actor);
+        cinema.getActores().add(actor);
         return true;
     }
 
@@ -44,9 +44,9 @@ public class ControladorCinema {
         return true;
     }
 
-    public ArrayList<Actor> buscarActores(Integer id) {
-        ArrayList<Actor> resultado = new ArrayList<>();
-        for (Actor actual : actores) {
+    public List<Actor> buscarActores(Integer id) {
+        List<Actor> resultado = new ArrayList<>();
+        for (Actor actual : cinema.getActores()) {
             if (Integer.valueOf(actual.getID()).toString().startsWith(id.toString())) {
                 resultado.add(actual);
             }
@@ -54,14 +54,14 @@ public class ControladorCinema {
         return resultado;
     }
 
-    public ArrayList<Actor> recuperarActores() {
-        return actores;
+    public List<Actor> recuperarActores() {
+        return cinema.getActores();
     }
 
     // Director
 
     public Director recuperarDirector(int id) {
-        for (Director director : directores) {
+        for (Director director : cinema.getDirectores()) {
             if (director.getID() == id) {
                 return director;
             }
@@ -73,7 +73,7 @@ public class ControladorCinema {
         if (recuperarDirector(director.getID()) != null) {
             return false;
         }
-        directores.add(director);
+        cinema.getDirectores().add(director);
         return true;
     }
 
@@ -87,9 +87,9 @@ public class ControladorCinema {
         return true;
     }
 
-    public ArrayList<Director> buscarDirectores(Integer id) {
-        ArrayList<Director> resultado = new ArrayList<>();
-        for (Director actual : directores) {
+    public List<Director> buscarDirectores(Integer id) {
+        List<Director> resultado = new ArrayList<>();
+        for (Director actual : cinema.getDirectores()) {
             if (Integer.valueOf(actual.getID()).toString().startsWith(id.toString())) {
                 resultado.add(actual);
             }
@@ -97,14 +97,14 @@ public class ControladorCinema {
         return resultado;
     }
 
-    public ArrayList<Director> recuperarDirectores() {
-        return directores;
+    public List<Director> recuperarDirectores() {
+        return cinema.getDirectores();
     }
 
     // Pelicula
 
     public Pelicula recuperarPelicula(int id) {
-        for (Pelicula pelicula : peliculas) {
+        for (Pelicula pelicula : cinema.getPeliculas()) {
             if (pelicula.getID() == id) {
                 return pelicula;
             }
@@ -116,7 +116,7 @@ public class ControladorCinema {
         if (recuperarPelicula(pelicula.getID()) != null) {
             return false;
         }
-        peliculas.add(pelicula);
+        cinema.getPeliculas().add(pelicula);
         return true;
     }
 
@@ -132,9 +132,9 @@ public class ControladorCinema {
         return true;
     }
 
-    public ArrayList<Pelicula> buscarPeliculas(Integer id) {
-        ArrayList<Pelicula> resultado = new ArrayList<>();
-        for (Pelicula actual : peliculas) {
+    public List<Pelicula> buscarPeliculas(Integer id) {
+        List<Pelicula> resultado = new ArrayList<>();
+        for (Pelicula actual : cinema.getPeliculas()) {
             if (Integer.valueOf(actual.getID()).toString().startsWith(id.toString())) {
                 resultado.add(actual);
             }
@@ -142,21 +142,18 @@ public class ControladorCinema {
         return resultado;
     }
 
-    public ArrayList<Pelicula> recuperarPeliculas() {
-        return peliculas;
+    public List<Pelicula> recuperarPeliculas() {
+        return cinema.getPeliculas();
     }
 
     public void guardar() {
-
     }
 
     public void cargar() {
 
     }
 
-    private ArrayList<Director> directores;
-    private ArrayList<Actor> actores;
-    private ArrayList<Pelicula> peliculas;
+    private Cinema cinema;
 
     private static ControladorCinema instancia = null;
 
