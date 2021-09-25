@@ -12,7 +12,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class JAXBParser {
-    public void marshall(Object o, String rutaArchivo) {
+    public static void marshall(Object o, String rutaArchivo) {
         try {
             JAXBContext jContext = JAXBContext.newInstance(o.getClass());
             Marshaller marshallObj = jContext.createMarshaller();
@@ -24,7 +24,7 @@ public class JAXBParser {
         }
     }
 
-    public Object unmarshall(Object ref, String rutaArchivo) {
+    public static Object unmarshall(Object ref, String rutaArchivo) {
         try {
             JAXBContext jContext = JAXBContext.newInstance(ref.getClass());
             Unmarshaller unmarshallerObj = jContext.createUnmarshaller();
